@@ -2,7 +2,6 @@
     background-color: rgb(83, 139, 242);
     border: solid 2px black;
     width: 400px;
-    height: auto;
     display: flex;
     flex-direction: column;
 }
@@ -23,9 +22,10 @@
 
 .results {
     border: solid 1px black;
+    background-color: rgb(149, 149, 149);
     margin: 20px;
 }
 
-.results p, h4 {
+.results p, .results h4 {
     margin-left: 20px;
 }

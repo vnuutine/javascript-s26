@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
 
             <label for="colors">Valitse juhlaväri:</label>
             <select name="colors" id="colors">
+                <option disabled selected value="">Valitse väri</option>
                 <option value="#FF0000">Punainen</option>
                 <option value="#FFFF00">Keltainen</option>
                 <option value="#0000FF">Sininen</option>
@@ -20,9 +21,7 @@
             </select>
 
             <label for="userInput">Mikä juhla?</label>
-            <form id="form">
-                <input type="text" id="userInput" name="userInput">
-            </form>
+            <input type="text" id="userInput" name="userInput">
         </div>
 
         <div class="buttons">
@@ -32,24 +31,34 @@
         <div class="results">
             <h4>Tulosalue</h4>
             <p id="colorCode">Valittu: </p>
-            <p id="event">...</p>
+            <p id="event"></p>
         </div>
     </div>
     
     <script>
-        const colorCode = getElementById("colorCode")
-        document.getElementById("colors").addEventListener("change", (event) => {
-            colorCode.innerHTML
-            console.log("Selected Value:", event.target.value)
-            console.log("Selected Text:", event.target.options[event.target.selectedIndex].text)
-        });
+        const colorCode = document.getElementById("colorCode")
+        const eventText = document.getElementById("event")
+        const printButton = document.getElementById("print")
+        const dropdown = document.getElementById("colors")
+        const results = document.querySelector(".results")
 
+        printButton.addEventListener("click", changeBg)
 
+        dropdown.addEventListener("change", (event) => {
+            colorCode.textContent = `Valittu: ${event.target.value}, ${event.target.options[event.target.selectedIndex].text}`
+        })
 
+        const liveInput = document.getElementById("userInput")
+        liveInput.addEventListener("input", (e) => {
+            const cleaned = e.target.value.replace(/\d/g, "")
+            e.target.value = cleaned
+            eventText.textContent = cleaned
+        })
 
+        function changeBg() {
+            results.style.backgroundColor = dropdown.value
+        }
 
-
-        
     </script>
 </body>
 </html>
