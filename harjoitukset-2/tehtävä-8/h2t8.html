@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Tonnin seteli</h2>
+            <p>Welcome to Tonnin seteli. Each spin will cost you 1 euro. You will win 2 euros, if you get two same and 10 euros if you get three same.</p>
+            <p>Good luck!</p>
+
+            <button id="spin">Spin</button>
+        </div>
+
+        <div id="output">
+            
+        </div>
+
+        <div id="balance">
+            
+        </div>
+    </div>
+
+
+    <script>
+        function randomPic() {
+            return Math.floor(Math.random() * 4) + 1
+        }
+
+        function main() {
+            if (balance <= 0) {
+                outputDiv.innerHTML = `Sorry you don't have any euros left!`
+                balanceDiv.innerHTML = ``
+                return
+            }
+
+            let pic1 = `images/${randomPic()}.png`
+            let pic2 = `images/${randomPic()}.png`
+            let pic3 = `images/${randomPic()}.png`
+
+            balance -= 1
+
+            outputDiv.innerHTML = `<img src="${pic1}" alt="image1">
+                                <img src="${pic2}" alt="image2">
+                                <img src="${pic3}" alt="image3">`
+
+            if (pic1 === pic2 && pic2 === pic3) {
+                balance += 10
+                balanceDiv.innerHTML = `Your balance is ${balance} euros`
+                balanceDiv.innerHTML += `<p>WOHOO - You won 10 euros!</p>`
+            } else if (pic1 === pic2 || pic1 === pic3 || pic2 === pic3) {
+                balance += 2
+                balanceDiv.innerHTML = `Your balance is ${balance} euros`
+                balanceDiv.innerHTML += `<p>WOHOO - You won 2 euros!</p>`
+            } else {
+                balanceDiv.innerHTML = `Your balance is ${balance} euros`
+                balanceDiv.innerHTML += `<p>Sorry - No win!</p>`
+            }
+        }
+
+        const spinButton = document.getElementById("spin")
+        const outputDiv = document.getElementById("output")
+        const balanceDiv = document.getElementById("balance")
+        
+        let balance = 100
+
+        balanceDiv.innerHTML = `Your balance is ${balance} euros`
+
+        spinButton.addEventListener("click", main, {
+        }) 
+
+    </script>
+
+</body>
+</html>

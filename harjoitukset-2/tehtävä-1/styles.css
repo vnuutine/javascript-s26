@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem dotted black;
+    margin: 3rem;
+    width: 25rem;
+    min-height: 15rem;
+     
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+}
+
+label {
+    display: inline-block;
+    width: 2rem;
+}
+
+#name, #age {
+    width: 10rem;
+    margin-left: 1rem;
+}

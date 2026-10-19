@@ -1,0 +1,13 @@
+.container {
+    width: 200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+li:hover {
+    cursor: pointer;
+}

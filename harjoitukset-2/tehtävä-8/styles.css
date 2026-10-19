@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem dotted black;
+    margin: 3rem;
+    width: 30rem;
+    min-height: 15rem;
+     
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+}
+
+#output {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    
+}
+
+#output img {
+    width: 150px;
+    height: 150px;
+}
+
+#balance {
+    margin-left: 1rem;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="results">    
+
+    </div>
+
+    <script>
+        let x = 0
+
+        function updateLoadingStatus() {
+            let resultsDiv = document.getElementById('results')
+
+            if (x > 100) {
+                resultsDiv.innerHTML = 'Loading done!'
+                clearInterval(intervalId)
+                return
+            }
+
+            resultsDiv.innerHTML = `Loading... ${x}%`
+
+            x += 10
+        }
+
+        let intervalId = setInterval(updateLoadingStatus, 1000)
+
+    </script>
+
+</body>
+</html>

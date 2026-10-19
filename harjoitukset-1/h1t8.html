@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harjoitus 1</title>
+</head>
+
+<body>
+    <script>
+
+        function palindrome(str) {
+            let cleanstr = str.toLowerCase().split(" ").join("")
+            return cleanstr == cleanstr.split("").reverse().join("")
+        }
+        
+        function main(str) {
+            if (palindrome(str) === false) {
+                console.log(`"${str}" is not a palindrome`)
+            } else {
+                console.log(`"${str}" is a palindrome`)
+            }
+        }
+        main("racecar")
+        main("Is this a palindrome")
+        main("Was it a car or a cat I saw")
+        main("saippuakauppias")
+        main("Innostunut sonni")
+        main("tonnin seteli")
+
+    </script>
+</body>
+</html>

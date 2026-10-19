@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harjoitus 1</title>
+</head>
+
+<body>
+
+    <script>
+        
+        function getScore() {
+            let counter = 0
+            const scoreList = []
+            
+            while (counter < 5) {
+                let score = Number(prompt("Give a score between 1 - 20"))
+                if (score >= 1 && score <= 20) {
+                    counter += 1
+                    console.log(`Added points: ${score}`)
+                    scoreList.push(score)
+                } else {
+                    alert("Give a score between 1 and 20")
+                }
+            }
+            return scoreList
+        }
+        
+        function compareNumbers(a, b) {
+            return a - b
+        }
+        
+        let list = getScore()
+        console.log(`Given points: (${list.length}) -> ${list.join(", ")}`)
+
+        list.sort(compareNumbers)
+        console.log(`Sorted points: (${list.length}) -> ${list.join(", ")}`)
+        
+        list.splice(0, 1)
+        list.pop()
+        
+        console.log(`Allowed points: (${list.length}) -> ${list.join(", ")}`) 
+
+        let total = 0
+            for (let i = 0; i < list.length; i++) {
+                total += list[i]
+            }
+
+        console.log(`Sum of the points is ${total}`)
+
+    </script>
+    
+</body>
+</html>

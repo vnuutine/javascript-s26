@@ -1,0 +1,28 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.image-selector {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-selector span {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #1708ef;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.image-container {
+    margin-top: 20px;
+}
+
+#image {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+}

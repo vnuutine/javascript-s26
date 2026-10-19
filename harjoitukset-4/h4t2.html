@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tulosta tasoitukset</title>
+
+        <script>
+            // prettier-ignore
+            var hcpdata = [ { "name": "Ari", "hcp": 54 },
+                      { "name": "Pasi", "hcp": 5 },
+                      { "name": "Seppo", "hcp": 20 }];
+
+            function displayList() {
+                const list = document.getElementById("hcplist");
+                if (list.children.length === 0) {
+                    for (let player of hcpdata) {
+                        let li = document.createElement("li");
+                        li.textContent = `${player.name} ${player.hcp}`;
+                        list.appendChild(li);
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <button onclick="displayList()">Tulosta tasoitukset</button>
+        <ul id="hcplist"></ul>
+    </body>
+</html>

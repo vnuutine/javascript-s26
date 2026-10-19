@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let fruits = {
+            apple: {
+                count: 3
+            },
+            banana: {
+                count: 5
+            },
+            orange: {
+                count: 2
+            },
+            grape: {
+                count: 1
+            }
+        }
+
+        counter = 0
+
+        for (let name in fruits) {
+            counter += fruits[name].count 
+        }
+        console.log(`Fruits count is ${counter}`)
+
+    </script>
+    
+</body>
+</html>

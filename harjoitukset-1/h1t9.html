@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harjoitus 1</title>
+</head>
+
+<body>
+
+    <script>
+
+        const names = []
+
+        function getName() {
+            let name = prompt("Please give a name")
+            return name
+        }
+        
+        while (true) {
+            let name = getName()
+            if (name != "") {
+                names.push(name)
+            } else {
+                break
+            }
+        }
+        
+        console.log("You gave the following names:")
+        for (let name of names) {
+             console.log(`Name: ${name}`)
+        }
+        
+        const sorted = names.sort()
+        console.log("Names in alphabetical order:")
+        for (let name of sorted) {
+            console.log(`Name: ${name}`)
+        }
+
+    </script>
+    
+</body>
+</html>

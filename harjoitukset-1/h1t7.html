@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harjoitus 1</title>
+</head>
+
+<body>
+
+    <script>
+        
+        function leapYear(yr) {
+            if (yr % 4 != 0) {
+                return false
+            }
+            if (yr % 100 === 0 && yr % 400 != 0) {
+                return false
+            }
+            return true
+        }
+
+        function main(yr) {
+            if (leapYear(yr) === false) {
+                console.log(`${yr} -> is not a leap year`)
+            } else {
+                console.log(`${yr} -> is a leap year`)
+            } 
+        }
+
+        main(1991)
+        main(1992)
+        main(1900)
+        main(2000)
+        main(1993)
+        
+    </script>
+    
+</body>
+</html>

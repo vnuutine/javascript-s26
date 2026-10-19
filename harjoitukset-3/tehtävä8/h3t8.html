@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="box">
+        <h3>Vauhtilaskin</h3>
+        <form>
+            <table>
+                <tbody>
+                    <tr><td>Tunnit:</td><td><input type="number" id="n1" value="1"></td></tr>
+                    <tr><td>Minuutit:</td><td><input type="number" id="n2" value="20"></td></tr>
+                    <tr><td>Sekunnit:</td><td><input type="number" id="n3" value="0"></td></tr>
+                    <tr><td>Kilometrit:</td><td><input type="number" id="n4" value="10"></td></tr>
+                </tbody>
+            </table>
+            <button>Laske kmh-vauhti</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        
+        class Vauhtilaskin {
+            constructor(hours, minutes, seconds, km) {
+                this.hours = hours
+                this.minutes = minutes
+                this.seconds = seconds
+                this.km = km
+            }
+
+            calcKmhPace() {
+                let totalHours = parseInt(this.hours) + (parseInt(this.minutes) * 60+parseInt(this.seconds))/3600
+                let total = parseFloat(this.km)/totalHours
+                total = total.toFixed(2)
+                return total
+            }
+        }
+
+        let hoursField = document.getElementById("n1")
+        let minutesField = document.getElementById("n2")
+        let secondsField = document.getElementById("n3")
+        let kmField = document.getElementById("n4")
+
+        let form = document.querySelector("form")
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault()
+            
+            let hours = hoursField.value
+            let minutes = minutesField.value
+            let seconds = secondsField.value
+            let km = kmField.value
+
+            let calculation = new Vauhtilaskin(hours, minutes, seconds, km)
+
+            let pace = calculation.calcKmhPace()
+
+            document.getElementById("result").textContent = pace + " km/h"
+        })
+
+    </script>
+
+</body>
+</html>

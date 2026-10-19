@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harjoitus 1</title>
+</head>
+
+<body>
+    
+    <script>
+        function numberMachine(arr) {
+            let min = Math.min(...arr)
+            let max = Math.max(...arr)
+            
+            let total = 0
+            for (let i = 0; i < arr.length; i++) {
+                total += arr[i]
+            }
+            
+            let avg = total / arr.length
+
+            console.log(`Lowest number is ${min}`)
+            console.log(`Highest number is ${max}`)
+            console.log(`Total is ${total}`)
+            console.log(`Average is ${avg}`)
+
+        }
+
+        const numbers = [10, 42, 4, 65, 9, 12, 31]
+        numberMachine(numbers)
+    </script>
+
+</body>
+</html>

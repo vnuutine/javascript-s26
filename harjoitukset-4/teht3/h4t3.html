@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>SimpleToDo</h2>
+
+        <form id="form">
+            <label for="todoInput">ToDo:</label>
+            <input type="text" id="todoInput" name="todoInput" />
+        </form>
+
+        <div class="buttons">
+            <button id="addButton">Lisää</button>
+            <button id="emptyButton">Tyhjää lista</button>
+        </div>
+
+        <ul id="lista"></ul>
+    </div>
+
+    <script>
+        const addButton = document.getElementById("addButton")
+        const emptyButton = document.getElementById("emptyButton")
+        const todoInput = document.getElementById("todoInput")
+        const list = document.getElementById("lista")
+        const form = document.getElementById("form")
+
+        list.addEventListener("click", removeItem)
+        addButton.addEventListener("click", addTodo)
+        emptyButton.addEventListener("click", emptyAll)
+        form.addEventListener("submit", addTodo)
+
+        function addTodo(e) {
+            e.preventDefault()
+            const input = todoInput.value
+            if (input.trim() === "") {
+                return
+            }
+            const li = document.createElement("li")
+            li.textContent = input
+            list.appendChild(li)
+            todoInput.value = ""
+        }
+
+        function emptyAll() {
+            list.replaceChildren()
+        }
+
+        function removeItem(e) {
+            if (e.target.tagName !== "LI") {
+                return
+            }
+            e.target.remove()
+        }
+
+    </script>
+</body>
+
+</html>

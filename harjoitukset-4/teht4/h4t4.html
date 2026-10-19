@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inputs">
+
+            <label for="colors">Valitse juhlaväri:</label>
+            <select name="colors" id="colors">
+                <option value="#FF0000">Punainen</option>
+                <option value="#FFFF00">Keltainen</option>
+                <option value="#0000FF">Sininen</option>
+                <option value="#008000">Vihreä</option>
+            </select>
+
+            <label for="userInput">Mikä juhla?</label>
+            <form id="form">
+                <input type="text" id="userInput" name="userInput">
+            </form>
+        </div>
+
+        <div class="buttons">
+            <button id="print">Vaihda valittu taustaväri</button>
+        </div>
+
+        <div class="results">
+            <h4>Tulosalue</h4>
+            <p id="colorCode">Valittu: </p>
+            <p id="event">...</p>
+        </div>
+    </div>
+    
+    <script>
+        const colorCode = getElementById("colorCode")
+        document.getElementById("colors").addEventListener("change", (event) => {
+            colorCode.innerHTML
+            console.log("Selected Value:", event.target.value)
+            console.log("Selected Text:", event.target.options[event.target.selectedIndex].text)
+        });
+
+
+
+
+
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Book {
+            constructor(name, author, publisher, year) {
+                this.name = name
+                this.author = author
+                this.publisher = publisher
+                this.year = year
+            }
+
+            toString() {
+                return `book: ${this.name}, ${this.author}, ${this.publisher}, ${this.year}`
+            }
+        }
+
+        class Library {
+            constructor() {
+                this.books = []
+            }
+
+            addBook(bk) {
+                this.books.push(bk)
+                console.log(`A new book is added to library: ${bk.name}`)
+            }
+
+            printBooks() {
+                console.log("Library has the following books:")
+
+                for (let book of this.books) {
+                    console.log(" - " + book.toString())
+                }
+
+                console.log(`Library has ${this.books.length} books`)
+            }
+        }
+
+        const library = new Library()
+
+        library.addBook(new Book("JavaScript Bible", "Danny Goodman", "John Wiley & Sons", 1998))
+        library.addBook(new Book("Learning Python", "Mark Lutz", "O'Reilly", 2013))
+        library.addBook(new Book("Flutter in Action", "Eric Windmill", "Manning Publications", 2020))
+
+        library.printBooks()
+
+    </script>
+    
+</body>
+</html>

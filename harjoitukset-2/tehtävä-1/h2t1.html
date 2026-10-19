@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Harjoitus 2</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Information</h2>
+            
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="age">Year:</label>
+                <input type="text" id="age" name="age"><br><br>
+                <input type="submit" value="Show">
+            </form>
+
+            <div class="output">
+                <div id="outputText"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let form = document.querySelector('form')
+        let outputText = document.getElementById('outputText')
+        let currentYear = new Date().getFullYear()
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault()
+
+            let name = document.getElementById('name').value
+            let age = document.getElementById('age').value
+
+            outputText.innerHTML = `<h2>Hello, ${name}!</h2>`
+            outputText.innerHTML += `<p>It has been a pleasure working with you <strong>${name}</strong> for
+                all these years. Nice to see you are only <strong>${currentYear - age}</strong> years old.
+                So we still have several years to go!</p>`
+        })
+    </script>
+
+</body>
+</html>

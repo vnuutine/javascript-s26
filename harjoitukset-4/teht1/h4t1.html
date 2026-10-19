@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content">
+        <div class="image-selector">
+            <span id="img1">Image 1</span>
+            <span id="img2">Image 2</span>
+            <span id="img3">Image 3</span>
+            <span id="img4">Image 4</span>
+            <span id="img5">Image 5</span>
+        </div>
+
+        <div class="image-container">
+            <img id="image" src="images/image-1.png" />
+        </div>
+    </div>
+
+
+    <script>
+        function changeImage(imageNumber) {
+            const image = document.getElementById("image");
+            image.src = `images/image-${imageNumber}.png`;
+        }
+
+        const img1 = document.getElementById("img1");
+        const img2 = document.getElementById("img2");
+        const img3 = document.getElementById("img3");
+        const img4 = document.getElementById("img4");
+        const img5 = document.getElementById("img5");
+
+        img1.addEventListener("click", function () {
+            changeImage(1);
+        });
+        img2.addEventListener("click", function () {
+            changeImage(2);
+        });
+        img3.addEventListener("click", function () {
+            changeImage(3);
+        });
+        img4.addEventListener("click", function () {
+            changeImage(4);
+        });
+        img5.addEventListener("click", function () {
+            changeImage(5);
+        });
+
+    </script>
+
+</body>
+
+</html>

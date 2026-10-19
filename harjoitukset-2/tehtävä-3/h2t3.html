@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <form>
+                <label for="num">Syötä alviton hinta:</label>
+                <input type="number" id="num" name="num"><br><br>
+                <input type="submit" value="Laske yleinen ALV (25.5%)">
+                <input type="submit" value="Laske elintarvikkeiden ALV (14%)">
+                <input type="submit" value="Laske lääkkeiden ALV (10%)">
+            </form>
+        </div>
+        <div class="output">
+            <div id="results"></div>
+        </div>
+    </div>
+
+
+    <script>
+        let results = document.getElementById('results')
+
+        function laskeALV(x, y = 25.5) {
+            let withVat = (parseFloat(x) * (1 + y / 100)).toFixed(2)
+            results.innerHTML = `Alviton hinta: ${x} €`
+            results.innerHTML += `<br>ALV: ${y} %`
+            results.innerHTML += `<br>ALV:n määrä: ${(withVat - x).toFixed(2)} €`
+            results.innerHTML += `<br>Hinta ALV:n kanssa: ${withVat} €`
+
+        }
+
+        let form = document.querySelector('form')
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault()
+            
+            let num = document.getElementById('num').value
+            let buttonValue = event.submitter.value
+
+            if (buttonValue === "Laske yleinen ALV (25.5%)") {
+                laskeALV(num)
+            } else if (buttonValue === "Laske elintarvikkeiden ALV (14%)") {
+                laskeALV(num, 14)
+            } else if (buttonValue === "Laske lääkkeiden ALV (10%)") {
+                laskeALV(num, 10)
+            }
+        })
+
+    </script>
+
+</body>
+</html>

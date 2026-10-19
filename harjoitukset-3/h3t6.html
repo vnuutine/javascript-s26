@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function person(name, age, phone, email) {
+            this.name = name
+            this.age = age
+            this.phone = phone
+            this.email = email
+        }
+
+        let person1 = new person("Pertti Keinonen", 42, "0401232323", "pertti@hello.com")
+        let person2 = new person("Pera Järvelä", 31, "04023525484", "pera@hello.com")
+        let person3 = new person("Kasetti Äijjä", 65, "0401119984", "kasetti@hello.com")
+        
+        person.prototype.addAge = function() {
+            this.age += 1
+        }
+
+        console.log(person1.name)
+        console.log(person1.age)
+        console.log(person1.phone)
+        console.log(person1.email)
+
+        console.log("")
+
+        console.log(person2.name)
+        console.log(person2.age)
+        console.log(person2.phone)
+        console.log(person2.email)
+
+        console.log("")
+
+        console.log(person3.name)
+        console.log(person3.age)
+        console.log(person3.phone)
+        console.log(person3.email)
+
+        person3.addAge()
+
+        console.log(person3.age)
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+
+<body>
+
+    <main class="elevator">
+        <input type="text" id="display" class="display" readonly>
+
+        <p id="status" class="status">Elevator is now in floor: 1</p>
+
+        <div class="keypad">
+            <button type="button" class="key" data-value="1">1</button>
+            <button type="button" class="key" data-value="2">2</button>
+            <button type="button" class="key" data-value="3">3</button>
+            <button type="button" class="key" data-value="4">4</button>
+            <button type="button" class="key" data-value="5">5</button>
+            <button type="button" class="key" data-value="6">6</button>
+            <button type="button" class="key" data-value="7">7</button>
+            <button type="button" class="key" data-value="8">8</button>
+            <button type="button" class="key" data-value="9">9</button>
+            <button type="button" class="key key-action" id="clear">C</button>
+            <button type="button" class="key" data-value="0">0</button>
+            <button type="button" class="key key-action" id="go">GO</button>
+        </div>
+    </main>
+    
+</body>
+</html>
