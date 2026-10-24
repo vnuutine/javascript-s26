@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h4>Shopping List</h4>
+        <div class="input">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price">
+
+            <label for="count">Count:</label>
+            <input type="number" id="count" name="count">
+
+            <button type="button" id="button" onclick="addProduct()">Add</button>
+        </div>
+        <div id="list"></div>
+    </div>
+    
+    <script>
+        function addProduct() {
+            let name = document.getElementById("name").value
+            let price = document.getElementById("price").value
+            let count = document.getElementById("count").value
+
+            if (name === "" || price === "" || count === "") {
+                alert("Please fill in all fields.")
+                return;
+            }
+
+            let list = document.getElementById("list")
+            let removeP = document.createElement("p")
+            removeP.className = "x"
+            removeP.textContent = "X"
+
+            let product = document.createElement("div")
+            product.className = "product"
+            
+            let pName = document.createElement("p")
+            pName.textContent = "Name: " + name
+            
+            let pPrice = document.createElement("p")
+            pPrice.textContent = "Price: " + price
+            
+            let pCount = document.createElement("p")
+            pCount.textContent = "Count: " + count
+            
+            list.appendChild(product)
+            product.appendChild(removeP)
+            product.appendChild(pName)
+            product.appendChild(pPrice)
+            product.appendChild(pCount)
+
+            removeP.addEventListener("click", function() {
+                list.removeChild(product)
+            })
+
+            document.getElementById("name").value = ""
+            document.getElementById("price").value = ""
+            document.getElementById("count").value = ""
+        }
+    </script>
+</body>
+</html>
