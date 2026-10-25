@@ -42,3 +42,5 @@ async function renderHouses() {
                 housediv.appendChild(housecontainer); 
     });    
 }
+
+renderHouses()
