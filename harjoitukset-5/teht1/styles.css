@@ -1,9 +1,9 @@
 #houses {
     width: 600px;
     height: 800px;
-    align-items: left;
     overflow: auto;
     margin: 10px;
+    text-align: left;
 }
 
 .houseContainer {
@@ -20,7 +20,7 @@
 .houseImage {
     width: 225px;
     height: 160px;
-    align-items: left;
+    float: left;
     margin: 2px;
 }
 
@@ -31,5 +31,5 @@ p.header {
 
 p.text {
     font-size: 10px;
-    font-weight: italic;
+    font-style: italic;
 }
