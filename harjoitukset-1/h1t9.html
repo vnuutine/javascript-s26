@@ -19,8 +19,13 @@
         
         while (true) {
             let name = getName()
-            if (name != "") {
-                names.push(name)
+            if (name != null) {
+                let nameTrimmed = name.trim()
+                if (nameTrimmed != "") {
+                    names.push(nameTrimmed)
+                } else {
+                    break
+                }
             } else {
                 break
             }
@@ -31,12 +36,11 @@
              console.log(`Name: ${name}`)
         }
         
-        const sorted = names.sort()
+        const sorted = names.sort((a, b) => a.localeCompare(b, "fi"))
         console.log("Names in alphabetical order:")
         for (let name of sorted) {
             console.log(`Name: ${name}`)
         }
-
     </script>
     
 </body>
