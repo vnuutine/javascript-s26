@@ -13,6 +13,10 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">
     </script>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
     <title>Golf courses</title>
 </head>
 
@@ -33,14 +37,15 @@
         }
 
         async function getCourses() {
-            let response = await fetch("courses.json")
-            let data = await response.json()
+            const response = await fetch("courses.json")
+            const data = await response.json()
             return data
         }
 
         function drawPlace(course) {
-            const marker = L.marker([course.lat, course.lng]).addTo(map)
-            marker.bindPopup(course.course)
+            const marker = L.marker([course.lat, course.lng])
+            marker.addTo(clusters)
+            marker.bindPopup(popupHtml(course))
         }
 
         function renderPlaces(list) {
@@ -49,79 +54,23 @@
             }
         }
 
+        function popupHtml(course) {
+            return `
+                <h3>${course.course}</h3>
+                <p><strong>Address: </strong>${course.address}</p>
+                <p><strong>Phone: </strong><a href="tel:${course.phone}">${course.phone}</a></p>
+                <p><strong>Email: </strong><a href="mailto:${course.email}">${course.email}</a></p>
+                <p><strong>Webpage: </strong><a href="${course.web}" target="_blank">${course.web}</a></p>
+                <p>${course.text}</p>`
+        }
+
+        const clusters = L.markerClusterGroup({
+            maxClusterRadius: 60
+        })
+        map.addLayer(clusters)
+
         init()
         
-        /*
-        function savePlaces(list) {
-            localStorage.setItem(storageKey, JSON.stringify(list))
-        }
-
-        let places
-
-        if (saved === null) {
-            places = [...defaultPlaces]
-            savePlaces(places)
-        } else {
-            places = JSON.parse(saved)
-        }
-
-        renderPlaces(places)
-
-        const PlaceFormControl = L.Control.extend({
-            options: {position: "bottomleft"},
-            onAdd: function (map) {
-                const container = L.DomUtil.create("div", "placeForm")
-                container.innerHTML =
-                    `<form id="addPlaceForm">
-                        <h4>Add a new favourite place</h4>
-                        <label for="nameInput">Name:</label>
-                        <input type="text" id="nameInput" name="nameInput" required>
-
-                        <label for="latInput">Latitude:</label>
-                        <input type="text" id="latInput" name="latInput" required>
-
-                        <label for="lngInput">Longitude:</label>
-                        <input type="text" id="lngInput" name="lngInput" required>
-
-                        <button id="addButton">Add</button>
-                    </form>`
-
-                L.DomEvent.disableScrollPropagation(container)
-                L.DomEvent.disableClickPropagation(container)
-
-                const form = container.querySelector("#addPlaceForm")
-
-                form.addEventListener("submit", function (event) {
-                    event.preventDefault()
-
-                    const name = container.querySelector("#nameInput").value.trim()
-                    const lat = Number(container.querySelector("#latInput").value)
-                    const lng = Number(container.querySelector("#lngInput").value)
-
-                    if (name === "") {
-                        alert("Give the place a name")
-                        return
-                    }
-
-                    if (Number.isNaN(lat) || Number.isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) {
-                        alert("Check the coordinates: latitude -90...90, longitude -180...180")
-                        return
-                    }
-
-                    const newPlace = {name, lat, lng}
-                    places.push(newPlace)
-                    savePlaces(places)
-
-                    drawPlace(newPlace)
-
-                    form.reset()
-                })
-                return container
-            }
-        })
-
-        new PlaceFormControl().addTo(map)
-    */
     </script>
 </body>
 </html>
