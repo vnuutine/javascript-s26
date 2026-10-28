@@ -9,18 +9,18 @@
 <body>
 
     <script>
-        function person(name, age, phone, email) {
+        function Person(name, age, phone, email) {
             this.name = name
             this.age = age
             this.phone = phone
             this.email = email
         }
 
-        let person1 = new person("Pertti Keinonen", 42, "0401232323", "pertti@hello.com")
-        let person2 = new person("Pera Järvelä", 31, "04023525484", "pera@hello.com")
-        let person3 = new person("Kasetti Äijjä", 65, "0401119984", "kasetti@hello.com")
+        let person1 = new Person("Pertti Keinonen", 42, "0401232323", "pertti@hello.com")
+        let person2 = new Person("Pera Järvelä", 31, "04023525484", "pera@hello.com")
+        let person3 = new Person("Kasetti Äijjä", 65, "0401119984", "kasetti@hello.com")
         
-        person.prototype.addAge = function() {
+        Person.prototype.addAge = function() {
             this.age += 1
         }
 
