@@ -1,0 +1,17 @@
+.container {
+    background-color: rgb(236, 218, 172);
+    border: 1px solid black;
+    width: 300px;
+}
+
+.content {
+    margin: 20px;
+}
+
+#search {
+    width: 240px;
+}
+
+.activeName {
+    background-color: yellow
+}
