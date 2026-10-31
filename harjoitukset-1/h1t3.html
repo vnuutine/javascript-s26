@@ -10,9 +10,13 @@
 
     <script>
         const words = ["JavaScriptin", "opiskelu", "on", "ihanaa!"];
+        let result = ""
+
+        for (let w of words) {
+            result += `${w} `
+        }
         
-        let line = words.join(" ");
-        console.log(line);
+        console.log(result)
     </script>
         
 </body>
