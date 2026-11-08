@@ -118,7 +118,7 @@ function createTaskItem(task) {
 
   const name = document.createElement("span");
   name.className = "exercise-task-name";
-  name.textContent = `Task ${task.task}: ${task.points}/${task.max}p`;
+  name.textContent = `Tehtävä ${task.task}: ${task.points}/${task.max}p`;
   info.append(name);
 
   if (task.comment) {
@@ -155,7 +155,7 @@ function createSetCard(exerciseSet) {
   title.className = "exercise-title";
   const points = sumTasks(exerciseSet.tasks, "points");
   const max = sumTasks(exerciseSet.tasks, "max");
-  title.textContent = `Exercises ${exerciseSet.set} (${points}/${max}p)`;
+  title.textContent = `Harjoitukset ${exerciseSet.set} (${points}/${max}p)`;
 
   const list = document.createElement("ul");
   list.className = "exercise-list";
