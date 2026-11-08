@@ -80,7 +80,7 @@ const exerciseSets = [
     tasks: [
       { task: 1, path: "harjoitukset-6/teht1/h6t1.html", points: 3, max: 3 },
       { task: 2, path: "harjoitukset-6/teht2/h6t2.html", points: 6, max: 6 },
-      { task: 3, path: "harjoitukset-6/teht3/h6t3.html", points: 0, max: 10 },
+      { task: 3, path: "harjoitukset-6/teht3/h6t3.html", points: 10, max: 10 },
     ],
   },
 ];

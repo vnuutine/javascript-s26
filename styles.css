@@ -1,15 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* -------------- */
+/* DESIGN TOKENS  */
+/* -------------- */
+
+:root {
+    color-scheme: light;
+
+    --accent: #4b54ff;
+    --accent-dark: #3239d6;
+    --accent-tint: #eef0ff;
+    --accent-tint-strong: #dfe2ff;
+
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --text: #1a1d2e;
+    --muted: #5f6478;
+    --border: #e4e6ef;
+
+    --missing: #8a8fa3;
+    --missing-tint: #f0f1f5;
+
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 2px rgba(26, 29, 46, 0.04), 0 4px 16px rgba(26, 29, 46, 0.06);
+    --shadow-hover: 0 2px 4px rgba(26, 29, 46, 0.05), 0 10px 28px rgba(75, 84, 255, 0.12);
+
+    --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ----- */
+/* BASE  */
+/* ----- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h2,
+h3 {
+    margin: 0;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: var(--accent);
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ------- */
+/* LAYOUT  */
+/* ------- */
+
+main {
+    padding-bottom: 3rem;
+}
+
 .section {
+    padding: 2rem 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ------ */
+/* CARDS  */
+/* ------ */
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.section-info {
+    color: var(--muted);
+    max-width: 65ch;
+}
+
+/* ---------------- */
+/* HEADER / SUMMARY */
+/* ---------------- */
+
+#summary {
+    padding-top: 3.5rem;
+}
+
+#summary h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+#summary h2::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 5px;
+    margin-top: 0.75rem;
+    border-radius: 999px;
+    background: var(--accent);
+}
+
+#summary .container > p {
+    margin: 0.85rem 0 1.75rem;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.points-summary li {
     display: flex;
-    flex-direction: column;
-    border: 2px solid #4b54ff;
-    width: 30rem;
-    margin: 1rem auto;
-    padding: 1rem;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.points-summary li span {
+    color: var(--muted);
+}
+
+.points-summary strong {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Total row stands out */
+.points-summary li:last-child {
+    margin-top: 0.75rem;
+    padding: 0.9rem 1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--accent-tint);
+}
+
+.points-summary li:last-child span {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.points-summary li:last-child strong {
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+/* --------- */
+/* EXERCISES */
+/* --------- */
+
+#exercises h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+}
+
+#exercises .section-info {
+    margin-bottom: 1.5rem;
+}
+
+.exercise-sets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.exercise-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.25rem 1.25rem 0.5rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.exercise-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.exercise-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    font-variant-numeric: tabular-nums;
 }
 
 .exercise-task {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    margin: 1rem auto; 
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin: 0 -0.5rem;
+    padding: 0.65rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease;
+}
+
+.exercise-task:last-child {
+    border-bottom: none;
+}
+
+.exercise-task:hover {
+    background: var(--bg);
+}
+
+.exercise-task-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.exercise-task-name {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+.exercise-comment {
+    margin-top: 0.15rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.exercise-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+/* Pill links */
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    background: var(--accent-tint);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.project-link:hover {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.project-link:active {
+    background: var(--accent-dark);
+}
+
+.project-link svg.feather {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+}
+
+/* Unfinished tasks */
+.exercise-task-missing .exercise-task-name {
+    color: var(--missing);
+}
+
+.exercise-task-missing::after {
+    content: "Ei tehty";
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    background: var(--missing-tint);
+    color: var(--missing);
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* -------- */
+/* COMMENTS */
+/* -------- */
+
+#comments .card-title {
+    margin-bottom: 0.5rem;
+}
+
+/* ------ */
+/* MOBILE */
+/* ------ */
+
+@media (max-width: 480px) {
+    #summary {
+        padding-top: 2rem;
+    }
+
+    .section {
+        padding: 1.25rem 0;
+    }
+
+    .card {
+        padding: 1.15rem;
+    }
+
+    #summary h2 {
+        font-size: 1.85rem;
+    }
+
+    .exercise-card {
+        padding: 0.9rem 0.75rem 0.35rem;
+    }
+
+    .exercise-task {
+        gap: 0.4rem 0.5rem;
+        margin: 0 -0.35rem;
+        padding: 0.6rem 0.35rem;
+    }
+
+    .exercise-task-name {
+        font-size: 0.95rem;
+    }
+
+    .exercise-links {
+        gap: 0.3rem;
+    }
+
+    .project-link {
+        padding: 0.3rem 0.55rem;
+        font-size: 0.8rem;
+        gap: 0.25rem;
+    }
+
+    .points-summary li {
+        flex-direction: column;
+        gap: 0.1rem;
+    }
 }
