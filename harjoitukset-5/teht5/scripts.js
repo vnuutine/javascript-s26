@@ -1,4 +1,4 @@
-let resultsArr = ["Aava", "Kaava", "Haava"]
+let resultsArr = []
 let selectedIndex = -1
 
 const resultsUl = document.getElementById("results")
@@ -26,3 +26,13 @@ function renderNames() {
         resultsUl.appendChild(nameLi)
     })
 }
+
+async function init() {
+    const names = await fetchNames()
+    resultsArr = names
+    renderNames()
+}
+
+addEventListener("keyup", (event) => {
+    init()
+ })
