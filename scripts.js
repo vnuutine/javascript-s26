@@ -72,7 +72,7 @@ const exerciseSets = [
       { task: 2, path: "harjoitukset-5/teht2/h5t2.html", points: 2, max: 2 },
       { task: 3, path: "harjoitukset-5/teht3/h5t3.html", points: 2, max: 2 },
       { task: 4, path: "harjoitukset-5/teht4/h5t4.html", points: 6, max: 6 },
-      { task: 5, path: null, points: 0, max: 10 },
+      { task: 5, path: "harjoitukset-5/teht5/h5t5.html", points: 10, max: 10 },
     ],
   },
   {
